@@ -2,16 +2,20 @@
 #
 # Place this in your $PROJECT/.git/hooks directory
 # File should be named 'commit-msg'
-# Ensure you have dbus bindings for ruby installed
+# Ensure you have dbus/rbosa bindings for ruby installed
 #
 #
 # Limitations: 
-#  * Only works for Amarok so far, as that's what I use.
+#  * Amarok on Linux only (and possibly on newer Amarok)
+#  * Now supporting iTunes on Mac
 #  * If your songs are tagged poorly, your commit message will be also.
 #
-require 'dbus'
 
-def song
+# You can take this out if you hate rubygems or something
+require 'rubygems'
+
+def amorok
+  require 'dbus'
   amarok_sbus = DBus::SessionBus.instance
   begin
     dbus = amarok_sbus.service("org.kde.amarok")
@@ -33,6 +37,37 @@ def song
     end
   end
   return resp.to_s
+end
+
+def itunes
+  resp = ""
+  require 'rbosa'
+  begin
+    a = OSA.app("iTunes")
+    vol = a.sound_volume
+  rescue RuntimeError
+    # iTunes not opened.
+    return ""
+  end
+  begin
+    name = a.current_track.name
+  rescue RuntimeError
+    # iTunes is not playing anything
+    return ""
+  end
+  artist  = a.current_track.artist
+  album = a.current_track.album
+  resp << "Song: #{name}"
+  resp << "Artist: #{artist}"
+  resp << "Album: #{album}"
+end
+
+def song
+ if RUBY_PLATFORM =~ /linux/
+   return amarok 
+ else
+   return itunes
+ end
 end
 
 message_file = ARGV[0]
