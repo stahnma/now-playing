@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+#
+# Place this in your $PROJECT/.git/hooks directory
+# File should be named 'commit-msg'
+# Ensure you have dbus bindings for ruby installed
+#
+#
+# Limitations: 
+#  * Only works for Amarok so far, as that's what I use.
+#  * If your songs are tagged poorly, your commit message will be also.
+#
+require 'dbus'
+
+def song
+  amarok_sbus = DBus::SessionBus.instance
+  begin
+    dbus = amarok_sbus.service("org.kde.amarok")
+    player = dbus.object("/Player")
+    player.introspect
+  rescue DBus::Error
+    # "Music player not opened."
+    return ""
+  end
+  player.default_iface = "org.freedesktop.MediaPlayer"
+  resp = ""
+  player.GetMetadata.each do |hash|
+    begin
+      resp = "Artist: #{hash['artist'] }\n"
+      resp << "Song: #{hash['title']}\n"
+      resp << "Album: #{hash['album']}\n"
+    rescue
+      resp = "No song playing."
+    end
+  end
+  return resp.to_s
+end
+
+message_file = ARGV[0]
+message = File.read(message_file)
+message.strip!
+mesg = "\n\n\n" + song
+
+File.open(message_file, 'a') do |f| 
+  f.write(mesg)
+end
