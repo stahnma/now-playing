@@ -29,8 +29,8 @@ def amarok
   resp = ""
   player.GetMetadata.each do |hash|
     begin
-      resp = "Artist: #{hash['artist'] }\n"
       resp << "Song: #{hash['title']}\n"
+      resp = "Artist: #{hash['artist'] }\n"
       resp << "Album: #{hash['album']}\n"
     rescue
       resp = "No song playing."
