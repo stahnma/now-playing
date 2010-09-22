@@ -30,13 +30,13 @@ def amarok
   player.GetMetadata.each do |hash|
     begin
       resp << "Song: #{hash['title']}\n"
-      resp = "Artist: #{hash['artist'] }\n"
+      resp << "Artist: #{hash['artist'] }\n"
       resp << "Album: #{hash['album']}\n"
     rescue
       resp = "No song playing."
     end
   end
-  return resp.to_s
+  resp
 end
 
 def itunes
@@ -60,6 +60,7 @@ def itunes
   resp << "Song: #{name}\n"
   resp << "Artist: #{artist}\n"
   resp << "Album: #{album}\n"
+  resp
 end
 
 def song
