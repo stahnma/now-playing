@@ -15,6 +15,19 @@ This gets appended onto your commit messages for git, though these hooks should 
 
 Having this information in a project provides each coder with a timeline of song enjoyment.  This information can, and should, be used to ridicule other coders for their choice of music, explain bugs, productivity and generally draw causation without any correlation or analysis. 
 
+## Example
+This project is using this commit hook. Here's an example output.  To see more, after you clone, try 'git log'. 
+
+    commit 73aa9bba5658e9da4052a57e7b13cd2bc4768b0d
+    Author: stahnma <stahnma@websages.com>
+    Date:   Tue Sep 21 23:23:45 2010 -0500
+    
+    Removing the no longer needed itunes.rb sample file I built as a prototype. 
+      
+    Song: The World at Large
+    Artist: Modest Mouse
+    Album: Good News for People Who Love Bad News
+
 
 ## Installation   
 Place this in your $PROJECT/.git/hooks directory
