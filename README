@@ -1,0 +1,34 @@
+Project designed to provide more amuzing commit messages.  
+
+I've found that when coding, I am more likely to read commit messages (mine and other people's) if they are interesting. I decided to add what music I was listening to the messages.  Then I added artist and album. 
+
+Now it's basically:
+  Song: <song title>
+  Artist: <artist>
+  Album: <album> 
+
+and this gets appended onto your commit messages for git, though these hooks shoudl work with minimal modification with svn, bzr, hg, etc. 
+
+
+= Installation = 
+# Place this in your $PROJECT/.git/hooks directory
+# File should be named 'commit-msg'
+# Ensure you have dbus bindings for ruby installed
+#
+#
+# Limitations: 
+#  * Only works for Amarok so far, as that's what I use.
+#  * iTunes Support (mac) is ready to be merged in, I just haven't done it yet.
+#  * If your songs are tagged poorly, your commit message will be also.
+#
+
+If you use Amarok (and are on Linux) you'll need dbus bindings for ruby installed.  In Fedora/RHEL space the package is ruby-dbus. 
+
+If you use a Mac and iTunes, you'll need rbosa, which I believe comes with Mac OS X these days. 
+
+If you're on Windows, meh.  I don't have a Windows system to test anything on. Patches accepted.  
+
+If you'd like a media player that I haven't supported, either write up the code and submit the patch, or let me know and I'll see if I can figure something out quickly.  
+
+
+MIT License
