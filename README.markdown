@@ -16,7 +16,7 @@ This gets appended onto your commit messages for git, though these hooks should 
 Having this information in a project provides each coder with a timeline of song enjoyment.  This information can, and should, be used to ridicule other coders for their choice of music, explain bugs, productivity and generally draw causation without any correlation or analysis. 
 
 ## Example
-This project is using this commit hook. Here's an example output.  To see more, after you clone, try 'git log'. 
+This project is using this commit hook. Here is a sample output.  To see more, after you clone, try 'git log'. 
 
     commit 73aa9bba5658e9da4052a57e7b13cd2bc4768b0d
     Author: stahnma <stahnma@websages.com>
@@ -45,7 +45,7 @@ File should be named 'commit-msg'
 
 ## Features 
 
-If you'd like a media player that I haven't supported, either write up the code and submit the patch, or let me know and I'll see if I can figure something out quickly.  
+If you would like a media player that I have not supported, either write up the code and submit the patch, or let me know and Iwill see if I can figure something out quickly.  
 
 ## License  
 MIT License

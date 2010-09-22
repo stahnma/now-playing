@@ -14,7 +14,7 @@
 # You can take this out if you hate rubygems or something
 require 'rubygems'
 
-def amorok
+def amarok
   require 'dbus'
   amarok_sbus = DBus::SessionBus.instance
   begin
