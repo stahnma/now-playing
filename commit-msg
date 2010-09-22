@@ -64,9 +64,9 @@ end
 
 def song
  if RUBY_PLATFORM =~ /linux/
-   return amarok 
+   amarok 
  else
-   return itunes
+   itunes
  end
 end
 
