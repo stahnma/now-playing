@@ -57,9 +57,9 @@ def itunes
   end
   artist  = a.current_track.artist
   album = a.current_track.album
-  resp << "Song: #{name}"
-  resp << "Artist: #{artist}"
-  resp << "Album: #{album}"
+  resp << "Song: #{name}\n"
+  resp << "Artist: #{artist}\n"
+  resp << "Album: #{album}\n"
 end
 
 def song
