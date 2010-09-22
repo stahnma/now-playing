@@ -1,18 +1,19 @@
 # now-playing #
 
 ## Purpose 
-Project designed to provide more amuzing commit messages.  
+Put your musical tastes in your commit messages. 
 
 ## Background 
-
-I've found that when coding, I am more likely to read commit messages (mine and other people's) if they are interesting. I decided to add what music I was listening to the messages.  Then I added artist and album. 
+I have found that when coding, I am more likely to read commit messages (mine and other people's) if they are interesting. I decided to add what music I was listening to the messages.  Then I added artist and album. 
 
 Now it's basically:
     Song: song title
     Artist: artist
     Album: album 
 
-This gets appended onto your commit messages for git, though these hooks shoudl work with minimal modification with svn, bzr, hg, etc. 
+This gets appended onto your commit messages for git, though these hooks should work with minimal modification with svn, bzr, hg, etc. 
+
+Having this information in a project provides each coder with a timeline of song enjoyment.  This information can, and should, be used to ridicule other coders for their choice of music, explain bugs, productivity and generally draw causation without any correlation or analysis. 
 
 
 ## Installation   
@@ -35,7 +36,7 @@ If you'd like a media player that I haven't supported, either write up the code 
 
 ## License  
 MIT License
-o
+
 
 Copyright (c) 2010 Michael Stahnke
 
